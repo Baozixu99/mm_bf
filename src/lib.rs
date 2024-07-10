@@ -1,3 +1,4 @@
+#![feature(alloc_error_handler)]
 pub mod address;
 mod frame_allocator;
 mod heap_allocator;
