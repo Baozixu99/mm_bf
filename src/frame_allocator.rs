@@ -1,10 +1,11 @@
 #[cfg(feature = "oom_handler")]
 use super::super::fs;
 use super::{PhysAddr, PhysPageNum};
-use crate::config::MEMORY_END;
+use config::MEMORY_END;
 #[cfg(feature = "oom_handler")]
 use crate::task::current_task;
 // KISS
+extern crate alloc;
 use alloc::{sync::Arc, vec::Vec};
 use core::fmt::{self, Debug, Formatter};
 use lazy_static::*;

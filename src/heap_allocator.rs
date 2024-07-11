@@ -1,4 +1,4 @@
-use crate::config::KERNEL_HEAP_SIZE;
+use config::KERNEL_HEAP_SIZE;
 use buddy_system_allocator::LockedHeap;
 
 #[global_allocator]
@@ -19,7 +19,7 @@ pub fn init_heap() {
             .init(HEAP_SPACE.as_ptr() as usize, KERNEL_HEAP_SIZE);
     }
 }
-
+extern crate alloc;
 #[allow(unused)]
 pub fn heap_test() {
     use alloc::boxed::Box;

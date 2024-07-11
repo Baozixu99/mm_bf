@@ -2,6 +2,7 @@ use core::ops::IndexMut;
 
 use super::memory_set::check_page_fault;
 use super::{MapPermission, PhysAddr, PhysPageNum, StepByOne, VirtAddr, VirtPageNum};
+extern crate alloc;
 use alloc::string::String;
 use alloc::vec::Vec;
 

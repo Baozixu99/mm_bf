@@ -1,20 +1,22 @@
 use super::map_area::*;
 use super::page_table::PageTable;
 use super::{PhysAddr, PhysPageNum, VirtAddr, VirtPageNum};
-use crate::arch::TrapContext;
-use crate::arch::{MMIO, TICKS_PER_SEC};
-use crate::fs::SeekWhence;
-use crate::syscall::errno::*;
-use crate::task::{
+use os::arch::TrapContext;
+use os::arch::{MMIO, TICKS_PER_SEC};
+use os::fs::SeekWhence;
+use os::syscall::errno::*;
+use os::task::{
     current_task, trap_cx_bottom_from_tid, ustack_bottom_from_tid, AuxvEntry, AuxvType, ELFInfo,
 };
-use crate::{config::*, should_map_trampoline};
+use config::should_map_trampoline;
+extern crate alloc;
 use alloc::string::String;
 use alloc::sync::Arc;
 use alloc::vec::Vec;
 use lazy_static::*;
 use log::{debug, error, info, trace, warn};
 use spin::Mutex;
+use config::*;
 extern "C" {
     fn stext();
     fn etext();

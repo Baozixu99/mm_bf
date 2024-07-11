@@ -7,8 +7,8 @@ mod memory_set;
 mod page_table;
 #[cfg(feature = "zram")]
 mod zram;
-pub use crate::arch::KernelPageTableImpl;
-pub use crate::arch::PageTableImpl;
+// pub use crate::arch::KernelPageTableImpl;
+// pub use crate::arch::PageTableImpl;
 use address::VPNRange;
 pub use address::PPNRange;
 pub use address::{PhysAddr, PhysPageNum, StepByOne, VirtAddr, VirtPageNum};

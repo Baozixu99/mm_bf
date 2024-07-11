@@ -8,12 +8,13 @@ use super::VPNRange;
 use super::KERNEL_SPACE;
 use super::{frame_alloc, FrameTracker};
 use super::{PhysPageNum, VirtAddr, VirtPageNum};
-use crate::fs::file_trait::File;
+use os::fs::file_trait::File;
 #[cfg(feature = "swap")]
-use crate::fs::swap::{SwapTracker, SWAP_DEVICE};
-use crate::fs::SeekWhence;
-use crate::mm::frame_allocator::frame_alloc_uninit;
-
+use os::fs::swap::{SwapTracker, SWAP_DEVICE};
+use os::fs::SeekWhence;
+use super::frame_allocator::frame_alloc_uninit;
+extern crate alloc;
+use bitflags::bitflags;
 #[cfg(feature = "oom_handler")]
 use alloc::collections::VecDeque;
 use alloc::sync::Arc;
